@@ -8,6 +8,7 @@ class ListaJokalariakTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		asdasda
 	}
 
 	@AfterEach
