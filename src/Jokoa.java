@@ -90,7 +90,7 @@ public class Jokoa {
 				if((jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera) instanceof Organoak) && !jokalari1.organoaJadaMahaian((Organoak)jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera))) {
 					jokalari1.mahaiaAktualizatu(jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera));
 				}
-				else if((jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera) instanceof Tratamenduak) &&  {
+				else if((jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera) instanceof Tratamenduak) && () {
 					
 				}
 	}	

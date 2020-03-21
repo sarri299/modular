@@ -30,7 +30,18 @@ public class ListaKartak {
 		return this.lista.get(i);
 	}
 	public boolean organoaJadaDago(Organoak pOrganoa) {
-		return this.lista.contains(pOrganoa);
+		Iterator<Karta> itr=this.getIteradorea();
+		Karta kartaBat=null;
+		boolean aurkitua=false;
+		while(itr.hasNext() && !aurkitua) {
+			kartaBat=itr.next();
+			if(kartaBat instanceof Organoak) {
+				if(kartaBat.koloreBerdina(pOrganoa)) {
+					aurkitua=true;
+				}
+			}
+		}
+		return aurkitua;
 	}
 	public void inprimatuEskua() {
 		Iterator<Karta> itr=this.getIteradorea();

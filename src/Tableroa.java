@@ -15,29 +15,29 @@ public class Tableroa {
 		Karta k;
 		int i=0;
 		while (i<5) {
-			k=new Organoak ("Gorria",false);
+			k=new Organoak ("Gorria",false,0);
 			this.mazoa.kartaGehitu(k);
 			i++;
 		}
 		i=0;
 		while (i<5) {
-			k = new Organoak ("Berdea",false);
+			k = new Organoak ("Berdea",false,0);
 			this.mazoa.kartaGehitu(k);
 			i++;
 		}
 		i=0;
 		while (i<5) {
-			k=new Organoak ("Horia",false);
+			k=new Organoak ("Horia",false,0);
 			this.mazoa.kartaGehitu(k);
 			i++;
 		}
 		i=0;
 		while (i<5) {
-			k=new Organoak ("Urdina",false);
+			k=new Organoak ("Urdina",false,0);
 			this.mazoa.kartaGehitu(k);
 			i++;
 		}
-		k=new Organoak ("Guztiak",true);
+		k=new Organoak ("Guztiak",true,0);
 		this.mazoa.kartaGehitu(k);
 
 		//Birusak
