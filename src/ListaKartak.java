@@ -29,4 +29,15 @@ public class ListaKartak {
 	public Karta getKarta (int i) {
 		return this.lista.get(i);
 	}
+	public boolean organoaJadaDago(Organoak pOrganoa) {
+		return this.lista.contains(pOrganoa);
+	}
+	public void inprimatuEskua() {
+		Iterator<Karta> itr=this.getIteradorea();
+		Karta kartaBat=null;
+		while(itr.hasNext()) {
+			kartaBat=itr.next();
+			kartaBat.inprimatu();
+		}
+	}
 }

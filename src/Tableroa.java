@@ -132,20 +132,8 @@ public class Tableroa {
 		}
 		return nireTableroa;
 	}
-	public ListaKartak getMazoa() {
-		return this.mazoa;
-	}
+	
 	public void kartakBanatu() {
-		int i=0;
-		for (int j=0;j<4;j++) {
-			i=0;
-			while (i<3) {
-				ListaJokalariak.getNireListaJokalariak().getLista()[j].kartaHartu(this.mazoa.kartaKendu(0));
-				i++;
-			}
-			
-			
-		}
-		
+		ListaJokalariak.getNireListaJokalariak().kartakBanatu(this.mazoa);
 	}
 }

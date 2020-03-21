@@ -1,16 +1,12 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ListaJokalariak {
 	private static ListaJokalariak nireListaJokalariak=null;
-	private Jokalaria[] lista;
-	private boolean amaitu;
+	private ArrayList<Jokalaria> lista;
 	
 	private ListaJokalariak() {
-		this.lista=new Jokalaria[4];
-		for(int i=0;i<4;i++) {
-			this.lista[i]=new Jokalaria();
-		}
-		this.amaitu=false;
+		this.lista=new ArrayList<Jokalaria>();
 	}
 	public static ListaJokalariak getNireListaJokalariak() {
 		if (nireListaJokalariak==null) {
@@ -18,14 +14,28 @@ public class ListaJokalariak {
 		}
 		return nireListaJokalariak;
 	}
+	private Iterator<Jokalaria> getIteradorea(){
+		return this.lista.iterator();
+	}
 	
+	public void gehituJokalariak(Jokalaria pJokalaria) {
+		this.lista.add(pJokalaria);
+	}
+	
+	public void kartakBanatu(ListaKartak pMazoa) {
+		Iterator<Jokalaria> itr=this.getIteradorea();
+		Jokalaria jokalariBat=null;
+		int i=0;
+		while(itr.hasNext()) {
+			jokalariBat=itr.next();
+			while(i<3) {
+				jokalariBat.kartaHartu(pMazoa.getKarta(i));
+				i++;
+			}
+		}
+	}
 	public void partidaHasieratu() {
 		Tableroa.getNiretableroa();
 		Tableroa.getNiretableroa().kartakBanatu();
-
-	}
-	
-	public Jokalaria[] getLista() {
-		return this.lista;
 	}
 	}
