@@ -29,6 +29,10 @@ public class ListaKartak {
 	public Karta getKarta (int i) {
 		return this.lista.get(i);
 	}
+	public void birusaGehitu(Birusa pBirusa) {
+		Organoak organoa=(Organoak)kartaBat;
+		organoa.birusKopHanditu();
+	}
 	public boolean organoGuztiakOsasuntsu() {
 		Iterator<Karta> itr=this.getIteradorea();
 		Karta kartaBat=null;
@@ -45,14 +49,14 @@ public class ListaKartak {
 		}
 		return osasuntsu;
 	}
-	public Organoak koloreBerdinekoOrganoaLortu(Botika pBotika) {
+	public Organoak koloreBerdinekoOrganoaLortu(Karta pKarta) {
 		Iterator<Karta> itr=this.getIteradorea();
 		Karta kartaBat=null;
 		boolean aurkitua=false;
 		while(itr.hasNext() && !aurkitua) {
 			kartaBat=itr.next();
 			if(kartaBat instanceof Organoak) {
-				if(kartaBat.koloreBerdina(pBotika)) {
+				if(kartaBat.koloreBerdina(pKarta)) {
 					aurkitua=true;
 				}
 			}
@@ -63,14 +67,14 @@ public class ListaKartak {
 		}
 		return (Organoak)kartaBat;
 	}
-	public boolean koloreBerdinekoOrganoaDago(Botika pBotika) {
+	public boolean koloreBerdinekoOrganoaDago(Karta pKarta) {
 		Iterator<Karta> itr=this.getIteradorea();
 		Karta kartaBat=null;
 		boolean aurkitua=false;
 		while(itr.hasNext() && !aurkitua) {
 			kartaBat=itr.next();
 			if(kartaBat instanceof Organoak) {
-				if(kartaBat.koloreBerdina(pBotika)) {
+				if(kartaBat.koloreBerdina(pKarta)) {
 					aurkitua=true;
 				}
 			}

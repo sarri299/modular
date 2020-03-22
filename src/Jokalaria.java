@@ -31,13 +31,16 @@ public class Jokalaria {
 	public boolean organoaJadaMahaian(Organoak pOrganoa) {
 		return this.mahaia.organoaJadaDago(pOrganoa);
 	}
-	public boolean koloreBerdinekoOrganoaDago(Botika pBotika) {
-		return this.mahaia.koloreBerdinekoOrganoaDago(pBotika);
+	public boolean koloreBerdinekoOrganoaDago(Karta pKarta) {
+		return this.mahaia.koloreBerdinekoOrganoaDago(pKarta);
 	}
-	public Organoak koloreBerdinekoOrganoaLortu(Botika pBotika) {
-		return this.mahaia.koloreBerdinekoOrganoaLortu(pBotika);
+	public Organoak koloreBerdinekoOrganoaLortu(Karta pKarta) {
+		return this.mahaia.koloreBerdinekoOrganoaLortu(pKarta);
 	}
 	public boolean organoGuztiakOsasuntsu() {
 		return this.mahaia.organoGuztiakOsasuntsu();
+	}
+	public void birusaGehitu(Birusa birusa) {
+		this.mahaia.birusaGehitu(birusa);
 	}
 }

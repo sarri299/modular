@@ -20,8 +20,18 @@ public class Organoak extends Karta {
 		}
 		return emaitza;
 	}
+	public boolean guztizInfektatuta() {
+		boolean emaitza=false;
+		if(this.birusKop==2) {
+			emaitza=true;
+		}
+		return emaitza;
+	}
 	public void bakunaKopHanditu() {
 		this.bakunaKop++;
+	}
+	public void birusKopHanditu() {
+		this.birusKop++;
 	}
 	public boolean osasuntsu() {
 		boolean emaitza=false;

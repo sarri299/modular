@@ -37,30 +37,15 @@ public class Teklatua {
 		}
 	}
 	
-	public int irakurriLehenOpzioak() throws NumberFormatException, LehenOpzioException{
+	public int irakurriHiruOpzioak() throws NumberFormatException, HiruOpzioException{
 		String sar=this.sc.nextLine();
 		int zenbaki=Integer.parseInt(sar);
 		if(zenbaki<1 || zenbaki >2) {
-			throw new LehenOpzioException();
+			throw new HiruOpzioException();
 		}
 		return zenbaki;
 	}
-	public int irakurriBigarrenOpzioak() throws NumberFormatException, BigarrenOpzioException{
-		String sar=this.sc.nextLine();
-		int zenbaki=Integer.parseInt(sar);
-		if(zenbaki<1 || zenbaki >3) {
-			throw new BigarrenOpzioException();
-		}
-		return zenbaki;
-	}
-	public int irakurriHirugarrenOpzioak() throws NumberFormatException, HirugarrenOpzioException{
-		String sar=this.sc.nextLine();
-		int zenbaki=Integer.parseInt(sar);
-		if(zenbaki<1 || zenbaki >4) {
-			throw new HirugarrenOpzioException();
-		}
-		return zenbaki;
-	}
+
 }
 
 

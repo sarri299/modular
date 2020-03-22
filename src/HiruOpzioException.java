@@ -1,9 +1,9 @@
 
-public class BigarrenOpzioException extends Exception{
+public class HiruOpzioException extends Exception{
 	
 	private String testua= "Mota Okerra, sartu 1,2 edo 3 zenbakiak:";
 			
-	public BigarrenOpzioException (){
+	public HiruOpzioException (){
 		super ();
 	}
 	

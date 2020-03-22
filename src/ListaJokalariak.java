@@ -21,6 +21,9 @@ public class ListaJokalariak {
 	public void gehituJokalariak(Jokalaria pJokalaria) {
 		this.lista.add(pJokalaria);
 	}
+	public Jokalaria lortuJokalariaPos(int pos) {
+		return this.lista.get(pos);
+	}
 	
 	public void kartakBanatu(ListaKartak pMazoa) {
 		Iterator<Jokalaria> itr=this.getIteradorea();
