@@ -2,7 +2,9 @@
 public abstract class Karta {
 	protected String kolorea;
 
-	public Karta() {}
+	public Karta(String pKolorea) {
+		this.kolorea=pKolorea;
+	}
 	protected void inprimatu() {}
 	
 	protected boolean koloreBerdina(Karta pKarta) {

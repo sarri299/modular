@@ -29,6 +29,54 @@ public class ListaKartak {
 	public Karta getKarta (int i) {
 		return this.lista.get(i);
 	}
+	public boolean organoGuztiakOsasuntsu() {
+		Iterator<Karta> itr=this.getIteradorea();
+		Karta kartaBat=null;
+		boolean osasuntsu=true;
+		Organoak organoa;
+		while(itr.hasNext() && osasuntsu) {
+			kartaBat=itr.next();
+			if(kartaBat instanceof Organoak) {
+				organoa=(Organoak)kartaBat;
+				if(!organoa.osasuntsu()) {
+					osasuntsu=false;
+				}
+			}
+		}
+		return osasuntsu;
+	}
+	public Organoak koloreBerdinekoOrganoaLortu(Botika pBotika) {
+		Iterator<Karta> itr=this.getIteradorea();
+		Karta kartaBat=null;
+		boolean aurkitua=false;
+		while(itr.hasNext() && !aurkitua) {
+			kartaBat=itr.next();
+			if(kartaBat instanceof Organoak) {
+				if(kartaBat.koloreBerdina(pBotika)) {
+					aurkitua=true;
+				}
+			}
+		}
+		if(!aurkitua) {
+			System.out.println("Ez dago kolore berdineko organorik");
+			kartaBat=null;
+		}
+		return (Organoak)kartaBat;
+	}
+	public boolean koloreBerdinekoOrganoaDago(Botika pBotika) {
+		Iterator<Karta> itr=this.getIteradorea();
+		Karta kartaBat=null;
+		boolean aurkitua=false;
+		while(itr.hasNext() && !aurkitua) {
+			kartaBat=itr.next();
+			if(kartaBat instanceof Organoak) {
+				if(kartaBat.koloreBerdina(pBotika)) {
+					aurkitua=true;
+				}
+			}
+		}
+		return aurkitua;
+	}
 	public boolean organoaJadaDago(Organoak pOrganoa) {
 		Iterator<Karta> itr=this.getIteradorea();
 		Karta kartaBat=null;

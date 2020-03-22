@@ -30,6 +30,7 @@ public class ListaJokalariak {
 			jokalariBat=itr.next();
 			while(i<3) {
 				jokalariBat.kartaHartu(pMazoa.getKarta(i));
+				pMazoa.kartaKendu(i);
 				i++;
 			}
 		}

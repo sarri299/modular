@@ -2,9 +2,10 @@
 public class Jokoa {
 	private static Jokoa nireJokoa=null;
 	private int lehenAukera;
-	private int bigarrenAukera;
-	private int hirugarrenAukera;
+	private int bigrrenAukera;
 	private int txanda;
+	private boolean txandaAmaitu=false;
+	private boolean jokoaAmaitu=false;
 
 	private Jokoa() {
 	}
@@ -46,53 +47,166 @@ public class Jokoa {
 		
 		System.out.println("");
 		
+		
+		
+		
+		while(!jokoaAmaitu) {
+		
 		if(this.txanda==1) {
 			
 			System.out.println(jokalari1.getIzena()+"-ren txanda");
-				
-			System.out.println("1->Zure kartekin zerbait egin        2->Besteen kartekin zerbait egin");
-		
-			boolean ktrlpean=false;
+			
+			boolean ktrlpean;
+			
+			System.out.println("Zure kartak:");
+			jokalari1.inprimatuEskua();
+			System.out.println("");
+			System.out.println("1-->Zure lehen karta erabili      2->Zure bigarren karta erabili      3->Zure hirugarren karta erabili");
+			ktrlpean=false;
 			do{
 				try{
-					this.lehenAukera=teklatua.irakurriLehenOpzioak();
+					this.lehenAukera=teklatua.irakurriBigarrenOpzioak();
 					ktrlpean=true;
 				}
-			
+				
 				catch (NumberFormatException e){
 					System.out.println("Ez duzu zenbaki bat sartu");
 				}
-			
-				catch (LehenOpzioException e){
+				
+				catch (BigarrenOpzioException e){
 					e.inprimatu();
 				}
 			} while (ktrlpean==false);		
-		
-			if(this.lehenAukera==1) {
-				System.out.println("1-->Zure lehen karta erabili      2->Zure bigarren karta erabili      3->Zure hirugarren karta erabili");
-				ktrlpean=false;
-				do{
-					try{
-						this.bigarrenAukera=teklatua.irakurriBigarrenOpzioak();
-						ktrlpean=true;
+			ktrlpean=false;
+			/*-------------------------------------------------------------------------------------------------------------------------------------*/
+			while(!this.txandaAmaitu) {
+				if((jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Organoak)){
+					if(!jokalari1.organoaJadaMahaian((Organoak)jokalari1.lortuKartaPosizioarekin(this.lehenAukera))) {
+						jokalari1.mahaiaAktualizatu((Organoak)jokalari1.lortuKartaPosizioarekin(this.lehenAukera));
+						if(this.txanda==4) {
+							this.txanda=1;
+						}
+						else {
+							this.txanda++;
+						}
+						this.txandaAmaitu=true;
+						
+						if(jokalari1.organoGuztiakOsasuntsu()) {
+							this.jokoaAmaitu=true;
+							System.out.println("Zorionak "+jokalari1.getIzena()+" irabazi egin duzu");
+						}
 					}
-				
-					catch (NumberFormatException e){
-						System.out.println("Ez duzu zenbaki bat sartu");
+					else {
+						System.out.println("Organoa jada zure mahailan dago");
+						System.out.println("Hartu "+this.lehenAukera+" ez den beste karta bat");
+						jokalari1.inprimatuEskua();
+						System.out.println("");
+						System.out.println("1-->Zure lehen karta erabili      2->Zure bigarren karta erabili      3->Zure hirugarren karta erabili");
+							
+						do{
+							try{
+								this.lehenAukera=teklatua.irakurriBigarrenOpzioak();
+								ktrlpean=true;
+							}
+							
+							catch (NumberFormatException e){
+								System.out.println("Ez duzu zenbaki bat sartu");
+							}
+							
+							catch (BigarrenOpzioException e){
+								e.inprimatu();
+							}
+						} while (ktrlpean==false);		
+						ktrlpean=false;
+							
+						if(jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Botika) {
+							if(jokalari1.koloreBerdinekoOrganoaDago((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera))) {
+								if(!jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).guztizBakunatuta()) {
+									jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).bakunaKopHanditu();
+										
+									if(this.txanda==4) {
+										this.txanda=1;
+									}										
+									else {
+										this.txanda++;
+									}
+									this.txandaAmaitu=true;
+								}
+								else {
+									System.out.println("Organoa jada guztiz bakunatuta dago");
+									System.out.println("Hartu "+this.lehenAukera+" ez den beste karta bat");
+									jokalari1.inprimatuEskua();
+									System.out.println("");
+									System.out.println("1-->Zure lehen karta erabili      2->Zure bigarren karta erabili      3->Zure hirugarren karta erabili");
+										
+									do{
+										try{
+											this.lehenAukera=teklatua.irakurriBigarrenOpzioak();
+											ktrlpean=true;
+										}
+										
+										catch (NumberFormatException e){
+											System.out.println("Ez duzu zenbaki bat sartu");
+										}
+										
+										catch (BigarrenOpzioException e){
+											e.inprimatu();
+										}
+									} while (ktrlpean==false);		
+									ktrlpean=false;
+									
+									if(jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Birusa) {
+										
+									}
+								}
+							}
+							else {
+								System.out.println("Ez dago kolore berdina duen organorik zure mahaian");
+								System.out.println("Hartu "+this.lehenAukera+" ez den beste karta bat");
+								jokalari1.inprimatuEskua();
+								System.out.println("");
+								System.out.println("1-->Zure lehen karta erabili      2->Zure bigarren karta erabili      3->Zure hirugarren karta erabili");
+									
+								do{
+									try{
+										this.lehenAukera=teklatua.irakurriBigarrenOpzioak();
+										ktrlpean=true;
+									}
+									
+									catch (NumberFormatException e){
+										System.out.println("Ez duzu zenbaki bat sartu");
+									}
+									
+									catch (BigarrenOpzioException e){
+										e.inprimatu();
+									}
+								} while (ktrlpean==false);		
+								ktrlpean=false;
+							}
+						}
 					}
+			}
 				
-					catch (BigarrenOpzioException e){
-						e.inprimatu();
+			else if(jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Botika){
+				if(jokalari1.koloreBerdinekoOrganoaDago((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera))) {
+					if(!jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).guztizBakunatuta()) {
+						jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).bakunaKopHanditu();			
+						
+						if(this.txanda==4) {
+							this.txanda=1;
+						}
+						else {
+							this.txanda++;
+						}
 					}
-				} while (ktrlpean==false);		
-				ktrlpean=false;
-				
-				if((jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera) instanceof Organoak) && !jokalari1.organoaJadaMahaian((Organoak)jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera))) {
-					jokalari1.mahaiaAktualizatu(jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera));
 				}
-				else if((jokalari1.lortuKartaPosizioarekin(this.bigarrenAukera) instanceof Tratamenduak) && () {
+				
+				else {
+					System.out.println("Ez dago kolore berdina duen organorik zure mahaian");
+				}
+			}
 					
-				}
+		}
 	}	
 }
 
