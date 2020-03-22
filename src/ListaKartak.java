@@ -29,15 +29,15 @@ public class ListaKartak {
 	public Karta getKarta (int i) {
 		return this.lista.get(i);
 	}
-	public void birusaGehitu(Birusa pBirusa) {
-		Organoak organoa=(Organoak)kartaBat;
-		organoa.birusKopHanditu();
+	public void organoaKendu(Organoak pOrganoa) {
+		this.lista.remove(pOrganoa);
 	}
 	public boolean organoGuztiakOsasuntsu() {
 		Iterator<Karta> itr=this.getIteradorea();
 		Karta kartaBat=null;
 		boolean osasuntsu=true;
 		Organoak organoa;
+		int kont=0;
 		while(itr.hasNext() && osasuntsu) {
 			kartaBat=itr.next();
 			if(kartaBat instanceof Organoak) {
@@ -45,7 +45,16 @@ public class ListaKartak {
 				if(!organoa.osasuntsu()) {
 					osasuntsu=false;
 				}
+				else {
+					kont++;
+				}
 			}
+		}
+		if(osasuntsu && kont==4) {
+			osasuntsu=true;
+		}
+		else {
+			osasuntsu=false;
 		}
 		return osasuntsu;
 	}

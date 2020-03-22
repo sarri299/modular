@@ -22,6 +22,9 @@ public class Jokalaria {
 	public void mahaiaAktualizatu(Karta pKarta) {
 		this.mahaia.kartaGehitu(pKarta);
 	}
+	public void organoaKendu(Organoak organoa) {
+		this.mahaia.organoaKendu(organoa);
+	}
 	public Karta lortuKartaPosizioarekin(int pPos) {
 		return this.eskua.getKarta(pPos);
 	}
@@ -39,8 +42,5 @@ public class Jokalaria {
 	}
 	public boolean organoGuztiakOsasuntsu() {
 		return this.mahaia.organoGuztiakOsasuntsu();
-	}
-	public void birusaGehitu(Birusa birusa) {
-		this.mahaia.birusaGehitu(birusa);
 	}
 }
