@@ -145,8 +145,137 @@ public class Jokoa {
 				this.organoa=false;
 			}
 	}
-				
-	private  void jokoaJolastu(){
+	private void lehenengoOrganoak(Jokalaria jokalaria,Jokalaria jokalari2,Jokalaria jokalari3,Jokalaria jokalari4) {
+		this.kartaOrganoak(jokalaria, jokalari2, jokalari3, jokalari4);
+		if(this.organoa) {
+			if(this.txanda==4) {
+			this.txanda=1;
+			}										
+			else {
+				this.txanda++;
+			}
+			this.txandaAmaitu=true;
+		}
+		else {
+			this.teklatuaBarne(jokalaria);
+			if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Botika) {
+				this.kartaBotika(jokalaria, jokalari2, jokalari3, jokalari4);
+				if(this.botika) {
+					if(this.txanda==4) {
+						this.txanda=1;
+					}										
+					else {
+						this.txanda++;
+					}
+					this.txandaAmaitu=true;
+				}
+				else {				
+					this.teklatuaBarne(jokalaria);
+					if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Birusa) {
+						this.kartaBirusa(jokalaria, jokalari2, jokalari3, jokalari4);
+						if(this.birusa) {
+							if(this.txanda==4) {
+								this.txanda=1;
+							}										
+							else {
+								this.txanda++;
+							}
+							this.txandaAmaitu=true;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void lehenegoBotika(Jokalaria jokalaria,Jokalaria jokalari2,Jokalaria jokalari3,Jokalaria jokalari4) {
+		this.kartaBotika(jokalaria, jokalari2, jokalari3, jokalari4);
+		if(this.botika) {
+			if(this.txanda==4) {
+			this.txanda=1;
+			}										
+			else {
+				this.txanda++;
+			}
+			this.txandaAmaitu=true;
+		}
+		else {
+			this.teklatuaBarne(jokalaria);
+			if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Organoak) {
+				this.kartaOrganoak(jokalaria, jokalari2, jokalari3, jokalari4);
+				if(this.organoa) {
+					if(this.txanda==4) {
+						this.txanda=1;
+					}										
+					else {
+						this.txanda++;
+					}
+					this.txandaAmaitu=true;
+				}
+				else {				
+					this.teklatuaBarne(jokalaria);
+					if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Birusa) {
+						this.kartaBirusa(jokalaria, jokalari2, jokalari3, jokalari4);
+						if(this.birusa) {
+							if(this.txanda==4) {
+								this.txanda=1;
+							}										
+							else {
+								this.txanda++;
+							}
+							this.txandaAmaitu=true;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void lehenengoBirusa(Jokalaria jokalaria,Jokalaria jokalari2,Jokalaria jokalari3,Jokalaria jokalari4) {
+		this.kartaBirusa(jokalaria, jokalari2, jokalari3, jokalari4);
+		if(this.birusa) {
+			if(this.txanda==4) {
+			this.txanda=1;
+			}										
+			else {
+				this.txanda++;
+			}
+			this.txandaAmaitu=true;
+		}
+		else {
+			this.teklatuaBarne(jokalaria);
+			if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Organoak) {
+				this.kartaOrganoak(jokalaria, jokalari2, jokalari3, jokalari4);
+				if(this.organoa) {
+					if(this.txanda==4) {
+						this.txanda=1;
+					}										
+					else {
+						this.txanda++;
+					}
+					this.txandaAmaitu=true;
+				}
+				else {				
+					this.teklatuaBarne(jokalaria);
+					if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Botika) {
+						this.kartaBotika(jokalaria, jokalari2, jokalari3, jokalari4);
+						if(this.botika) {
+							if(this.txanda==4) {
+								this.txanda=1;
+							}										
+							else {
+								this.txanda++;
+							}
+							this.txandaAmaitu=true;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	
+	private  void jokoaHasieratu(){
 		
 		Teklatua teklatua=Teklatua.getNireTeklatua();
 		Tableroa tableroa=Tableroa.getNiretableroa();
@@ -174,53 +303,32 @@ public class Jokoa {
 		System.out.println("");
 		
 		while(!this.jokoaAmaitu) {
-			if(this.txanda==1) {
-				while(!this.txandaAmaitu) {
-					this.teklatuaBarne(jokalari1);
-					if((jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Organoak)){
-						this.kartaOrganoak(jokalari1, jokalari2, jokalari3, jokalari4);
-						if(this.organoa) {
-							if(this.txanda==4) {
-								this.txanda=1;
-							}										
-							else {
-								this.txanda++;
-							}
-							this.txandaAmaitu=true;
-						}
-						else {
-							this.teklatuaBarne(jokalari1);
-							if(jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Botika) {
-								this.kartaBotika(jokalari1, jokalari2, jokalari3, jokalari4);
-								if(this.botika) {
-									if(this.txanda==4) {
-										this.txanda=1;
-									}										
-									else {
-										this.txanda++;
-									}
-									this.txandaAmaitu=true;
-								}
-								else {				
-									this.teklatuaBarne(jokalari1);
-									else if(jokalari1.lortuKartaPosizioarekin(this.lehenAukera) instanceof Birusa) {
-										this.kartaBirusa(jokalari1, jokalari2, jokalari3, jokalari4);
-										if(this.birusa) {
-											if(this.txanda==4) {
-												this.txanda=1;
-											}										
-											else {
-												this.txanda++;
-											}
-											this.txandaAmaitu=true;
-										}
-									}
-								}
-							}
-						}
-					}
+			Jokalaria jokalaria=ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.txanda);
+			if(this.txanda==2) {
+				jokalari2=jokalari1;
+			}
+			else if(txanda==3) {
+				jokalari3=jokalari1;
+			}
+			else if(txanda==4) {
+				jokalari4=jokalari1;
+			}
+			while(!this.txandaAmaitu) {
+				this.teklatuaBarne(jokalaria);
+				if((jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Organoak)){
+					this.lehenengoOrganoak(jokalaria, jokalari2, jokalari3, jokalari4);
+				}
+				else if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Botika) {
+					this.lehenegoBotika(jokalaria, jokalari2, jokalari3, jokalari4);
+				}
+				else if(jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Birusa) {
+					this.lehenengoBirusa(jokalaria, jokalari2, jokalari3, jokalari4);
 				}
 			}
 		}
+	}
+	
+	private void jokoaJolastu(String args[]) {
+		this.jokoaHasieratu();
 	}
 }
