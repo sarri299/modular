@@ -1,3 +1,4 @@
+package birus;
 
 public class HirugarrenOpzioException extends Exception{
 	

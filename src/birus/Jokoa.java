@@ -1,3 +1,4 @@
+package birus;
 
 public class Jokoa {
 	private static Jokoa nireJokoa=null;

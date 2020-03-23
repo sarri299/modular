@@ -1,3 +1,4 @@
+package birus;
 
 public class Birusa extends Karta {
 	private boolean komodin;

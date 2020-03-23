@@ -1,3 +1,4 @@
+package birus;
 
 public class Jokalaria {
 	private ListaKartak eskua;

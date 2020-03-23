@@ -1,3 +1,4 @@
+package birus;
 
 public class Organoak extends Karta {
 	private boolean komodin;

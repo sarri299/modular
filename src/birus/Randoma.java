@@ -1,3 +1,4 @@
+package birus;
 
 import java.util.Random;
 

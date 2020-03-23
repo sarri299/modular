@@ -1,3 +1,4 @@
+package birus;
 
 public abstract class Karta {
 	protected String kolorea;
