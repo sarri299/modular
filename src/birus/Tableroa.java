@@ -102,25 +102,25 @@ public class Tableroa {
 		//Tratamenduak
 		i=0;
 		while (i<2) {
-			k=new Tratamendua ("Kutsatu");
+			k=new Tratamendua ("Zuria","Kutsatu");
 			this.mazoa.kartaGehitu(k);			
 			i++;
 		}
 		i=0;
 		while (i<3) {
-			k=new Tratamendua ("Lapurra");
+			k=new Tratamendua ("Zuria","Lapurra");
 			this.mazoa.kartaGehitu(k);			
 			i++;
 		}
 		i=0;
 		while (i<3) {
-			k=new Tratamendua ("Organo aldaketa");
+			k=new Tratamendua ("Zuria","Organo aldaketa");
 			this.mazoa.kartaGehitu(k);			
 			i++;
 		}
-		k=new Tratamendua ("Deskartatu guztiak");
+		k=new Tratamendua ("Zuria","Deskartatu guztiak");
 		this.mazoa.kartaGehitu(k);
-		k=new Tratamendua ("Esku aldaketa");
+		k=new Tratamendua ("Zuria","Esku aldaketa");
 		this.mazoa.kartaGehitu(k);
 		
 		//barajatu
