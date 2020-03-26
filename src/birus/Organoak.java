@@ -29,10 +29,14 @@ public class Organoak extends Karta {
 		return emaitza;
 	}
 	public void bakunaKopHanditu() {
-		this.bakunaKop++;
+		if(this.bakunaKop<2) {
+			this.bakunaKop++;
+		}
 	}
 	public void birusKopHanditu() {
-		this.birusKop++;
+		if(this.birusKop<2) {
+			this.birusKop++;
+		}
 	}
 	public boolean osasuntsu() {
 		boolean emaitza=false;
