@@ -44,4 +44,10 @@ public class Jokalaria {
 	public boolean organoGuztiakOsasuntsu() {
 		return this.mahaia.organoGuztiakOsasuntsu();
 	}
+	public void birusaKendu(int pPos) {
+		this.eskua.kartaKendu(pPos);
+	}
+	public void botikaKendu(int pPos) {
+		this.eskua.kartaKendu(pPos);
+	}
 }

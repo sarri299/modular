@@ -41,8 +41,17 @@ public class Teklatua {
 	public int irakurriHiruOpzioak() throws NumberFormatException, HiruOpzioException{
 		String sar=this.sc.nextLine();
 		int zenbaki=Integer.parseInt(sar);
-		if(zenbaki<1 || zenbaki >2) {
+		if(zenbaki<1 || zenbaki >3) {
 			throw new HiruOpzioException();
+		}
+		return zenbaki;
+	}
+	
+	public int irakurriLauOpzioak() throws NumberFormatException, LauOpzioException{
+		String sar=this.sc.nextLine();
+		int zenbaki=Integer.parseInt(sar);
+		if(zenbaki<1 || zenbaki >4) {
+			throw new LauOpzioException();
 		}
 		return zenbaki;
 	}

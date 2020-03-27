@@ -1,10 +1,10 @@
 package birus;
 
-public class HirugarrenOpzioException extends Exception{
+public class LauOpzioException extends Exception{
 	
 	private String testua= "Mota Okerra, sartu 1,2,3 edo 4 zenbakiak:";
 			
-	public HirugarrenOpzioException (){
+	public LauOpzioException (){
 		super ();
 	}
 	

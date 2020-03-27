@@ -138,6 +138,6 @@ public class Tableroa {
 		ListaJokalariak.getNireListaJokalariak().kartakBanatu(this.mazoa);
 	}
 	public void deskartatu(Karta pKarta) {
-		this.mazoa.kartaGehitu(pKarta);
+		this.deskarteak.kartaGehitu(pKarta);
 	}
 }
