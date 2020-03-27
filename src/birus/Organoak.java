@@ -5,11 +5,11 @@ public class Organoak extends Karta {
 	private int bakunaKop;
 	private int birusKop;
 	
-	public Organoak (String pKolorea,boolean pKomodin,int pBakunaKop) {
+	public Organoak (String pKolorea,boolean pKomodin,int pBakunaKop,int pBirusKop) {
 		super(pKolorea);
-		this.kolorea=pKolorea;
 		this.komodin=pKomodin;
 		this.bakunaKop=pBakunaKop;
+		this.birusKop=pBirusKop;
 	}
 	public void inprimatu() {
 		System.out.println("Organo "+ super.kolorea);
@@ -44,5 +44,25 @@ public class Organoak extends Karta {
 			emaitza=true;
 		}
 		return emaitza;
+	}
+	public boolean erdiInfektatuta() {
+		boolean emaitza=false;
+		if(this.birusKop==1) {
+			emaitza=true;
+		}
+		return emaitza;
+	}
+	public boolean erdiBakunatuta() {
+		boolean emaitza=false;
+		if(this.bakunaKop==1) {
+			emaitza=true;
+		}
+		return emaitza;
+	}
+	public void birusaKendu() {
+		this.birusKop=0;
+	}
+	public void bakunaKendu() {
+		this.bakunaKop=0;
 	}
 }

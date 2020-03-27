@@ -80,7 +80,12 @@ public class Jokoa {
 		Tableroa tableroa=Tableroa.getNiretableroa();
 		this.teklatuaKanpo(jokalari1, jokalari2, jokalari3, jokalari4);
 		if(ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.bigarrenAukera).koloreBerdinekoOrganoaDago((Birusa)jokalari1.lortuKartaPosizioarekin(this.lehenAukera))){
-			ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.bigarrenAukera).koloreBerdinekoOrganoaLortu((Birusa)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).birusKopHanditu();
+			if(ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.bigarrenAukera).koloreBerdinekoOrganoaLortu((Birusa)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).erdiBakunatuta()) {
+				ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.bigarrenAukera).koloreBerdinekoOrganoaLortu((Birusa)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).bakunaKendu();
+			}
+			else {
+				ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.bigarrenAukera).koloreBerdinekoOrganoaLortu((Birusa)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).birusKopHanditu();
+			}
 			if(ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.bigarrenAukera).koloreBerdinekoOrganoaLortu((Birusa)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).guztizBakunatuta()) {		
 				System.out.println("Organoa guztiz bakunatuta dago");
 			}
@@ -100,7 +105,12 @@ public class Jokoa {
 	private void kartaBotika(Jokalaria jokalari1,Jokalaria jokalari2,Jokalaria jokalari3,Jokalaria jokalari4) {
 		Tableroa tableroa=Tableroa.getNiretableroa();
 		if(jokalari1.koloreBerdinekoOrganoaDago((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)) && !jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).guztizBakunatuta()) {
-			jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).bakunaKopHanditu();
+			if(jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).erdiInfektatuta()) {
+				jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).birusaKendu();
+			}
+			else {
+				jokalari1.koloreBerdinekoOrganoaLortu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera)).bakunaKopHanditu();
+			}
 			tableroa.deskartatu((Botika)jokalari1.lortuKartaPosizioarekin(this.lehenAukera));
 			jokalari1.botikaKendu(this.lehenAukera);
 			if(jokalari1.organoGuztiakOsasuntsu()) {
@@ -122,7 +132,6 @@ public class Jokoa {
 	}
 	
 	private void kartaOrganoak(Jokalaria jokalari1,Jokalaria jokalari2,Jokalaria jokalari3,Jokalaria jokalari4) {
-		Tableroa tableroa=Tableroa.getNiretableroa();
 		if(!jokalari1.organoaJadaMahaian((Organoak)jokalari1.lortuKartaPosizioarekin(this.lehenAukera))) {
 				jokalari1.mahaiaAktualizatu((Organoak)jokalari1.lortuKartaPosizioarekin(this.lehenAukera));
 				jokalari1.organoaKendu((Organoak)jokalari1.lortuKartaPosizioarekin(this.lehenAukera));
@@ -299,6 +308,7 @@ public class Jokoa {
 		System.out.println("");
 		
 		while(!this.jokoaAmaitu) {
+			this.txandaAmaitu=false;
 			Jokalaria jokalaria=ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.txanda);
 			if(this.txanda==2) {
 				jokalari2=jokalari1;
@@ -310,7 +320,6 @@ public class Jokoa {
 				jokalari4=jokalari1;
 			}
 			while(!this.txandaAmaitu) {
-				jokalaria=ListaJokalariak.getNireListaJokalariak().lortuJokalariaPos(this.txanda);
 				this.teklatuaBarne(jokalaria);
 				if((jokalaria.lortuKartaPosizioarekin(this.lehenAukera) instanceof Organoak)){
 					this.lehenengoOrganoak(jokalaria, jokalari2, jokalari3, jokalari4);
